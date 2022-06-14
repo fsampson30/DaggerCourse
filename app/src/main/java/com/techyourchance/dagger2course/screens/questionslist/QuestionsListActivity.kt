@@ -18,8 +18,6 @@ class QuestionsListActivity : AppCompatActivity(), QuestionsListMvc.Listener {
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
-    private lateinit var stackoverflowApi: StackoverflowApi
-
     private var isDataLoaded = false
 
     private lateinit var viewMvc: QuestionsListMvc
