@@ -18,8 +18,6 @@ class QuestionDetailsActivity : AppCompatActivity(), QuestionsDetailsMvc.Listene
 
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
-    private lateinit var stackoverflowApi: StackoverflowApi
-
     private lateinit var questionId: String
 
     private lateinit var viewMvc: QuestionsDetailsMvc
@@ -32,13 +30,6 @@ class QuestionDetailsActivity : AppCompatActivity(), QuestionsDetailsMvc.Listene
         setContentView(viewMvc.rootView)
 
         fetchQuestionDetailsUseCase = FetchQuestionDetailsUseCase()
-
-        // init retrofit
-        val retrofit = Retrofit.Builder()
-            .baseUrl(Constants.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        stackoverflowApi = retrofit.create(StackoverflowApi::class.java)
 
         // retrieve question ID passed from outside
         questionId = intent.extras!!.getString(EXTRA_QUESTION_ID)!!
