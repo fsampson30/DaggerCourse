@@ -5,15 +5,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
-import com.techyourchance.dagger2course.Constants
-import com.techyourchance.dagger2course.networking.StackoverflowApi
 import com.techyourchance.dagger2course.questions.FetchQuestionDetailsUseCase
-import com.techyourchance.dagger2course.questions.FetchQuestionsUseCase
+import com.techyourchance.dagger2course.screens.common.ScreensNavigator
 import com.techyourchance.dagger2course.screens.common.dialogs.DialogsNavigator
-import com.techyourchance.dagger2course.screens.common.dialogs.ServerErrorDialogFragment
 import kotlinx.coroutines.*
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class QuestionDetailsActivity : AppCompatActivity(), QuestionsDetailsMvc.Listener {
 
@@ -27,6 +22,8 @@ class QuestionDetailsActivity : AppCompatActivity(), QuestionsDetailsMvc.Listene
 
     private lateinit var dialogsNavigator: DialogsNavigator
 
+    private lateinit var screensNavigator: ScreensNavigator
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewMvc = QuestionsDetailsMvc(LayoutInflater.from(this), null)
@@ -35,6 +32,8 @@ class QuestionDetailsActivity : AppCompatActivity(), QuestionsDetailsMvc.Listene
         fetchQuestionDetailsUseCase = FetchQuestionDetailsUseCase()
 
         dialogsNavigator = DialogsNavigator(supportFragmentManager)
+
+        screensNavigator = ScreensNavigator(this)
 
         // retrieve question ID passed from outside
         questionId = intent.extras!!.getString(EXTRA_QUESTION_ID)!!
@@ -84,6 +83,6 @@ class QuestionDetailsActivity : AppCompatActivity(), QuestionsDetailsMvc.Listene
     }
 
     override fun onBackClicked() {
-        onBackPressed()
+        screensNavigator.navigateBack()
     }
 }
