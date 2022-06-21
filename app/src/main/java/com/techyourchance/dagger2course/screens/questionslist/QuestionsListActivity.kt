@@ -26,7 +26,7 @@ class QuestionsListActivity : BaseActivity(), QuestionsListMvc.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewMvc = QuestionsListMvc(LayoutInflater.from(this), null)
+        viewMvc = compositionRoot.viewMvcFactory.newQuestionsListViewMvc(null)
 
         setContentView(viewMvc.rootView)
 
