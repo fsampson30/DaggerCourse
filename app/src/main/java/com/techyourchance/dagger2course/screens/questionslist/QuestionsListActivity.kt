@@ -1,7 +1,6 @@
 package com.techyourchance.dagger2course.screens.questionslist
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import com.techyourchance.dagger2course.questions.FetchQuestionsUseCase
 import com.techyourchance.dagger2course.questions.Question
 import com.techyourchance.dagger2course.screens.common.ScreensNavigator
@@ -63,8 +62,7 @@ class QuestionsListActivity : BaseActivity(), QuestionsListMvc.Listener {
         coroutineScope.launch {
             viewMvc.showProgressIndication()
             try {
-                val result = fetchQuestionsUseCase.fetchLatestQuestions()
-                when (result) {
+                when (val result = fetchQuestionsUseCase.fetchLatestQuestions()) {
                     is FetchQuestionsUseCase.Result.Success -> {
                         viewMvc.bindQuestions(result.questions)
                         isDataLoaded = true
