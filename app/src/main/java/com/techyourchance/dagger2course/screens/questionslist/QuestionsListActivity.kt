@@ -14,25 +14,17 @@ class QuestionsListActivity : BaseActivity(), QuestionsListMvc.Listener {
     private val coroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Main.immediate)
 
     private var isDataLoaded = false
-
     private lateinit var viewMvc: QuestionsListMvc
-
     private lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
-
     private lateinit var dialogsNavigator: DialogsNavigator
-
     private lateinit var screensNavigator: ScreensNavigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewMvc = compositionRoot.viewMvcFactory.newQuestionsListViewMvc(null)
-
         setContentView(viewMvc.rootView)
-
         fetchQuestionsUseCase = compositionRoot.fetchQuestionsUseCase
-
         dialogsNavigator = compositionRoot.dialogsNavigator
-
         screensNavigator = compositionRoot.screensNavigator
     }
 
