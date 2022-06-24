@@ -13,7 +13,9 @@ open class BaseActivity: AppCompatActivity() {
         ActivityCompositionRoot(this, appCompositionRoot)
     }
 
-    protected val compositionRoot get() = PresentationCompositionRoot(activityCompositionRoot)
+    protected val compositionRoot by lazy {
+        PresentationCompositionRoot(activityCompositionRoot)
+    }
 
 
 }
