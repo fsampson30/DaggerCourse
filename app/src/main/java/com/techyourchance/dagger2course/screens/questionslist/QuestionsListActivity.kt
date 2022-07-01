@@ -21,7 +21,7 @@ class QuestionsListActivity : BaseActivity(), QuestionsListMvc.Listener {
     @field:Service private lateinit var fetchQuestionsUseCase: FetchQuestionsUseCase
     @field:Service private lateinit var dialogsNavigator: DialogsNavigator
     @field:Service private lateinit var screensNavigator: ScreensNavigator
-    @field:Service private  lateinit var viewMvcFactory: ViewMvcFactory
+    @field:Service private lateinit var viewMvcFactory: ViewMvcFactory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         injector.inject(this)
