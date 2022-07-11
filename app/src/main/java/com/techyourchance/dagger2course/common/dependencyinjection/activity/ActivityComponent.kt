@@ -6,7 +6,9 @@ import androidx.fragment.app.FragmentManager
 import com.techyourchance.dagger2course.networking.StackoverflowApi
 import com.techyourchance.dagger2course.screens.common.ScreensNavigator
 import dagger.Component
+import javax.inject.Scope
 
+@ActivityScope
 @Component(modules = [ActivityModule::class])
 interface ActivityComponent {
 
