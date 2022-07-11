@@ -25,6 +25,6 @@ class AppModule(val application: Application) {
 
     @AppScope
     @Provides
-    fun stackoverflowApi(retrofit: Retrofit) = retrofit.create(StackoverflowApi::class.java)
+    fun stackoverflowApi(retrofit: Retrofit): StackoverflowApi = retrofit.create(StackoverflowApi::class.java)
 
 }
