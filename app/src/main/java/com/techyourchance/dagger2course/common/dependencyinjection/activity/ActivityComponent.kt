@@ -7,6 +7,7 @@ import com.techyourchance.dagger2course.common.dependencyinjection.app.AppCompon
 import com.techyourchance.dagger2course.common.dependencyinjection.app.AppModule
 import com.techyourchance.dagger2course.common.dependencyinjection.presentation.PresentationComponent
 import com.techyourchance.dagger2course.common.dependencyinjection.presentation.PresentationModule
+import com.techyourchance.dagger2course.common.dependencyinjection.presentation.UseCasesModule
 import com.techyourchance.dagger2course.networking.StackoverflowApi
 import com.techyourchance.dagger2course.screens.common.ScreensNavigator
 import dagger.Component
@@ -18,5 +19,5 @@ import javax.inject.Scope
 @Subcomponent(modules = [ActivityModule::class])
 interface ActivityComponent {
 
-    fun newPresentationComponent(presentationModule: PresentationModule) : PresentationComponent
+    fun newPresentationComponent(presentationModule: PresentationModule, useCasesModule: UseCasesModule) : PresentationComponent
 }
