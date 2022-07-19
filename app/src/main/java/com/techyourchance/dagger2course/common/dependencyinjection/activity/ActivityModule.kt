@@ -8,12 +8,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class ActivityModule(
-    val activity: AppCompatActivity
-) {
-
-    @Provides
-    fun activity() = activity
+object ActivityModule {
 
     @Provides
     @ActivityScope
@@ -24,5 +19,6 @@ class ActivityModule(
 
     @Provides
     fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
+
 
 }
