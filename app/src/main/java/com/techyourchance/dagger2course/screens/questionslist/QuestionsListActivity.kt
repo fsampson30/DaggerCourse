@@ -46,6 +46,10 @@ class QuestionsListActivity : BaseActivity(), QuestionsListMvc.Listener {
         screensNavigator.toQuestionDetails(clickedQuestion.id)
     }
 
+    override fun onViewModelCLicked() {
+        screensNavigator.toViewModel()
+    }
+
     override fun onStop() {
         super.onStop()
         coroutineScope.coroutineContext.cancelChildren()

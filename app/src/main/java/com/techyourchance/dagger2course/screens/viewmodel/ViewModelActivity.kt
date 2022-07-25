@@ -16,7 +16,7 @@ class ViewModelActivity : BaseActivity() {
     private lateinit var toolbar: MyToolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //injector.inject(this)
+        injector.inject(this)
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.layout_view_model)
