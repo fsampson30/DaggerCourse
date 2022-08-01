@@ -16,7 +16,7 @@ class ViewModelActivity : BaseActivity() {
 
     @Inject lateinit var screensNavigator: ScreensNavigator
 
-    @Inject lateinit var myviewmodelFactory: MyViewModel.MyViewModelFactory
+    @Inject lateinit var myViewModelFactory: MyViewModel.MyViewModelFactory
 
     private lateinit var myViewModel: MyViewModel
 
@@ -33,7 +33,7 @@ class ViewModelActivity : BaseActivity() {
             screensNavigator.navigateBack()
         }
 
-        myViewModel = ViewModelProvider(this, myviewmodelFactory).get(MyViewModel::class.java)
+        myViewModel = ViewModelProvider(this, myViewModelFactory).get(MyViewModel::class.java)
 
         myViewModel.question.observe(this, Observer {
             questions -> Toast.makeText(this, "fetched ${questions.size} questions", Toast.LENGTH_SHORT).show()
