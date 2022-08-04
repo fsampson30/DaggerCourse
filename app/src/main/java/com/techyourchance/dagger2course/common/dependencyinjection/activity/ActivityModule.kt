@@ -6,8 +6,10 @@ import com.techyourchance.dagger2course.common.dependencyinjection.app.AppCompon
 import com.techyourchance.dagger2course.screens.common.ScreensNavigator
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.migration.DisableInstallInCheck
 
 @Module
+@DisableInstallInCheck
 object ActivityModule {
 
     @Provides

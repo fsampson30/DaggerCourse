@@ -4,8 +4,10 @@ import android.app.Service
 import android.content.Context
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.migration.DisableInstallInCheck
 
 @Module
+@DisableInstallInCheck
 class ServiceModule(
         val service: Service
 ) {
